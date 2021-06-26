@@ -84,17 +84,19 @@ const deleteCard = (event) => {
 
   globalStore = globalStore.filter((cardObject) => cardObject.id !== targetID);
 
-  localStorage.setItem("tasky", JSON.stringify({cards:globalStore}));
+  localStorage.setItem("tasky", JSON.stringify({ cards: globalStore }));
 
   //contact parent
 
-  if(tagname == "BUTTON") {
-    return taskContainer.removeChild(event.target.parentNode.parentNode.parentNode);
-  }
-  else {
+  if (tagname === "BUTTON") {
     return taskContainer.removeChild(
-      event.target.parentNode.parentNode.parentNode.parentNode);
+      event.target.parentNode.parentNode.parentNode
+    );
+  } else {
+    return taskContainer.removeChild(
+      event.target.parentNode.parentNode.parentNode.parentNode
+    );
   }
 
- // taskContainer.removeChild(document.getElementById(targetID));
+  // taskContainer.removeChild(document.getElementById(targetID));
 };
